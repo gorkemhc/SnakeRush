@@ -1,28 +1,35 @@
-# GogoSnake
+# Snake Rush
 
-Pixel-art görünümünü koruyan, akıcı hareket sistemine ve dört neon renk temasına sahip mobil ve web yılan oyunu.
+Klasik kare piksel yılan görünümünü koruyan; akıcı hareket, dört neon tema ve mobil dokunmatik kontroller sunan web ve Android yılan oyunu.
 
-**GOGO STUDIO**<br>
+**GHC STUDIO**<br>
 Geliştirici: **Görkem H.**
 
-[Canlı Demo](https://gorkemhc.github.io/gogosnake/) · [APK İndir](https://github.com/gorkemhc/gogosnake/releases/download/v1.0.0/GogoSnake.apk)
+[Canlı Oyun](https://gorkemhc.github.io/snake-rush/) · [APK İndir](https://github.com/gorkemhc/snake-rush/releases/download/v1.0.0/Snake-Rush.apk)
 
 ## Özellikler
 
-- Sabit zaman adımlı oyun mantığı ve `requestAnimationFrame` tabanlı interpolasyon
+- Eski tarz, birbirinden ayrı kare gövde segmentleri ve gözlü kare yılan başı
+- Sabit zaman adımlı oyun mantığı ve `requestAnimationFrame` tabanlı görsel interpolasyon
 - Neon Mavi, Neon Mor, Neon Kırmızı ve Neon Yeşil temaları
-- Kalıcı tema, hız, ses, titreşim ve kontrol tercihleri
+- Kalıcı tema, mod, hız, ses, titreşim ve kontrol tercihleri
 - Dokunmatik kaydırma, ekran yön tuşları ve klavye kontrolleri
 - Kolay ve zor oyun modları
 - Moda göre saklanan skor ve rekor sistemi
-- Mobil safe-area desteği ve 360×800, 390×844, 412×915 düzenleri
-- Çevrimdışı çalışabilen PWA ve yerel Android WebView paketi
+- Mobil safe-area desteği ve küçük ekranlara uyumlu yerleşim
+- Çevrimdışı çalışabilen PWA ve yerel Android `WebView` paketi
+
+Oyunun web veya Android arayüzünde indirme düğmesi bulunmaz. APK yalnızca bu README ve GitHub Releases üzerinden sunulur.
 
 ## Ekran görüntüleri
 
-| Ana menü | Ayarlar | Oyun |
+| Ana menü | Ayarlar | Oynanış |
 | --- | --- | --- |
-| ![GogoSnake ana menü](test-screenshots/02-main-menu-blue.png) | ![GogoSnake ayarlar](test-screenshots/06-settings.png) | ![GogoSnake oyun](test-screenshots/07-gameplay-normal.png) |
+| ![Snake Rush ana menü](test-screenshots/02-snake-rush-main-menu.png) | ![Snake Rush ayarlar](test-screenshots/08-snake-rush-settings.png) | ![Snake Rush kare segmentli oynanış](test-screenshots/07-snake-rush-gameplay.png) |
+
+| Neon Mor | Neon Kırmızı | Neon Yeşil |
+| --- | --- | --- |
+| ![Snake Rush mor tema](test-screenshots/04-snake-rush-purple-theme.png) | ![Snake Rush kırmızı tema](test-screenshots/05-snake-rush-red-theme.png) | ![Snake Rush yeşil tema](test-screenshots/06-snake-rush-green-theme.png) |
 
 ## Kontroller
 
@@ -33,15 +40,14 @@ Geliştirici: **Görkem H.**
 ## Teknolojiler
 
 - HTML5, CSS ve JavaScript
-- Canvas 2D
-- Web Audio API
+- Canvas 2D ve Web Audio API
 - Service Worker ve Web App Manifest
 - Native Android `WebView`
 - Gradle 9.1 ve Android Gradle Plugin 9.0.1
 
 ## Yerel web geliştirme
 
-Kanonik web kaynakları `android/app/src/main/assets/www` klasöründedir. Bu klasörü herhangi bir statik HTTP sunucusuyla açabilirsiniz.
+Kanonik web kaynakları `android/app/src/main/assets/www` klasöründedir. Klasörü statik bir HTTP sunucusuyla açın; GitHub Pages iş akışı da aynı kaynakları yayımlar.
 
 ## Android build
 
@@ -49,7 +55,7 @@ Gereksinimler:
 
 - Android Studio ve Android SDK
 - Android API 35 veya üzeri derleme platformu
-- JDK 25 ile Gradle 9.1
+- Android Studio JBR (JDK 17 veya üzeri)
 
 Windows üzerinde debug APK oluşturmak için:
 
@@ -58,15 +64,21 @@ $env:JAVA_HOME = "C:\Program Files\Android\Android Studio\jbr"
 .\android\gradlew.bat -p android :app:assembleDebug
 ```
 
-Debug APK çıktısı `android/app/build/outputs/apk/debug/app-debug.apk` konumunda oluşur.
+Çıktı `android/app/build/outputs/apk/debug/app-debug.apk` konumunda oluşur.
 
-### v1.0.0 APK notu
+### v1.0.0 APK imza notu
 
-Bu sürüm için ayrı bir üretim imzalama anahtarı yapılandırılmadığından Release varlığı olan `GogoSnake.apk`, Android’in debug sertifikasıyla imzalanmış test/dağıtım APK’sıdır. Kaynaklardaki `app-release-unsigned.apk` üretim için imzasızdır; mağaza dağıtımı öncesinde geliştiricinin kendi güvenli anahtarıyla imzalanmalıdır.
+Projede üretim imzalama anahtarı bulunmadığından `Snake-Rush.apk`, Android debug sertifikasıyla imzalanmış kurulabilir test/dağıtım APK’sıdır. APK Signature Scheme v1 ve v2 doğrulaması başarılıdır. Mağaza dağıtımından önce geliştiricinin kendi güvenli üretim anahtarıyla imzalanmalıdır; depoda keystore veya parola tutulmaz.
 
-## Web yayını
+## Doğrulanan Android ortamı
 
-GitHub Pages iş akışı kanonik web klasörünü doğrudan yayımlar; Android ve web sürümleri aynı HTML, CSS, JavaScript, görsel ve PWA dosyalarını kullanır.
+- Pixel 7 sanal cihazı
+- Android 16 / API 36
+- Google APIs, Intel x86_64, normal sistem görüntüsü
+- `adb` durumu: `device`
+- Uygulama sürümü: `1.0.0`
+
+Gerçek emülatör test kanıtları `test-screenshots` klasöründedir. Akıcı oynanış kaydı yerel teslimde `test-videos/snake-rush-smooth-gameplay.mp4` olarak üretilir; büyük test videoları Git geçmişine eklenmez.
 
 ## Lisans
 
