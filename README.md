@@ -5,7 +5,7 @@ Klasik kare piksel yılan görünümünü koruyan; akıcı hareket, dört neon t
 **GHC STUDIO**<br>
 Geliştirici: **Görkem H.**
 
-[Canlı Oyun](https://gorkemhc.github.io/snake-rush/) · [APK İndir](https://github.com/gorkemhc/snake-rush/releases/download/v1.0.0/Snake-Rush.apk)
+[Canlı Oyun](https://gorkemhc.github.io/SnakeRush/) · [APK İndir](https://github.com/gorkemhc/SnakeRush/releases/download/v1.0.0/Snake-Rush.apk)
 
 ## Özellikler
 
