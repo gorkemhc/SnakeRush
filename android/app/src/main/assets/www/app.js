@@ -606,11 +606,39 @@
     ctx.fillRect(x + size * 0.2, y + size * 0.18, Math.max(1.5, size * 0.17), Math.max(1.5, size * 0.17));
   }
 
+  function unwrapNear(value, anchor, limit) {
+    let result = value;
+    if (mode === 'easy') {
+      if (result - anchor > limit / 2) result -= limit;
+      if (result - anchor < -limit / 2) result += limit;
+    }
+    return result;
+  }
+
   function drawSnake(alpha) {
     const visual = visualSnake(alpha);
     if (!visual.length) return;
-    ctx.imageSmoothingEnabled = false;
-    const segmentSize = Math.max(6, cell * 0.76);
+    const center = point => ({x: offsetX + (point.x + 0.5) * cell, y: offsetY + (point.y + 0.5) * cell});
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+    ctx.lineWidth = Math.max(5, cell * 0.58);
+    ctx.strokeStyle = canvasPalette.snake;
+    for (let index = 1; index < visual.length; index++) {
+      const previous = visual[index - 1];
+      const current = {
+        x: unwrapNear(visual[index].x, previous.x, cols),
+        y: unwrapNear(visual[index].y, previous.y, rows)
+      };
+      if (Math.abs(current.x - previous.x) > 1.65 || Math.abs(current.y - previous.y) > 1.65) continue;
+      const a = center(previous);
+      const b = center(current);
+      ctx.beginPath();
+      ctx.moveTo(a.x, a.y);
+      ctx.lineTo(b.x, b.y);
+      ctx.stroke();
+    }
+
+    const segmentSize = Math.max(6, cell * 0.7);
     const pad = (cell - segmentSize) / 2;
     for (let index = visual.length - 1; index >= 0; index--) {
       const segment = visual[index];
@@ -619,14 +647,15 @@
       ctx.fillStyle = index === 0 ? canvasPalette.head : canvasPalette.snake;
       if (index === 0) {
         ctx.shadowColor = canvasPalette.glow;
-        ctx.shadowBlur = Math.min(5, cell * 0.2);
+        ctx.shadowBlur = Math.min(6, cell * 0.25);
       }
-      ctx.fillRect(x, y, segmentSize, segmentSize);
+      roundedRectPath(x, y, segmentSize, Math.max(2, cell * 0.18));
+      ctx.fill();
       ctx.shadowBlur = 0;
     }
 
     const head = visual[0];
-    const eyeSize = Math.max(1.5, cell * 0.1);
+    const eyeSize = Math.max(1.5, cell * 0.11);
     const headCenterX = offsetX + (head.x + 0.5) * cell;
     const headCenterY = offsetY + (head.y + 0.5) * cell;
     const sideX = direction.y * cell * 0.17;
@@ -634,8 +663,10 @@
     const forwardX = direction.x * cell * 0.18;
     const forwardY = direction.y * cell * 0.18;
     ctx.fillStyle = canvasPalette.background;
-    ctx.fillRect(headCenterX + forwardX + sideX - eyeSize / 2, headCenterY + forwardY + sideY - eyeSize / 2, eyeSize, eyeSize);
-    ctx.fillRect(headCenterX + forwardX - sideX - eyeSize / 2, headCenterY + forwardY - sideY - eyeSize / 2, eyeSize, eyeSize);
+    ctx.beginPath();
+    ctx.arc(headCenterX + forwardX + sideX, headCenterY + forwardY + sideY, eyeSize, 0, Math.PI * 2);
+    ctx.arc(headCenterX + forwardX - sideX, headCenterY + forwardY - sideY, eyeSize, 0, Math.PI * 2);
+    ctx.fill();
   }
 
   function draw(alpha = 1, now = performance.now()) {

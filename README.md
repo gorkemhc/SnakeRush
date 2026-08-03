@@ -5,11 +5,11 @@ Klasik kare piksel yılan görünümünü koruyan; akıcı hareket, dört neon t
 **GHC STUDIO**<br>
 Geliştirici: **Görkem H.**
 
-[Canlı Oyun](https://gorkemhc.github.io/SnakeRush/) · [APK İndir](https://github.com/gorkemhc/SnakeRush/releases/download/v1.0.0/Snake-Rush.apk)
+[Canlı Oyun](https://gorkemhc.github.io/SnakeRush/) · [APK İndir](https://github.com/gorkemhc/SnakeRush/releases/download/v1.0.1/Snake-Rush.apk)
 
 ## Özellikler
 
-- Eski tarz, birbirinden ayrı kare gövde segmentleri ve gözlü kare yılan başı
+- Eski tarz, birbirine bağlı yuvarlatılmış gövde segmentleri ve dairesel gözlü yılan başı
 - Sabit zaman adımlı oyun mantığı ve `requestAnimationFrame` tabanlı görsel interpolasyon
 - Neon Mavi, Neon Mor, Neon Kırmızı ve Neon Yeşil temaları
 - Kalıcı tema, mod, hız, ses, titreşim ve kontrol tercihleri
@@ -25,7 +25,7 @@ Oyunun web veya Android arayüzünde indirme düğmesi bulunmaz. APK yalnızca b
 
 | Ana menü | Ayarlar | Oynanış |
 | --- | --- | --- |
-| ![Snake Rush ana menü](test-screenshots/02-snake-rush-main-menu.png) | ![Snake Rush ayarlar](test-screenshots/08-snake-rush-settings.png) | ![Snake Rush kare segmentli oynanış](test-screenshots/07-snake-rush-gameplay.png) |
+| ![Snake Rush ana menü](test-screenshots/02-snake-rush-main-menu.png) | ![Snake Rush ayarlar](test-screenshots/08-snake-rush-settings.png) | ![Snake Rush oynanış](test-screenshots/07-snake-rush-gameplay.png) |
 
 | Neon Mor | Neon Kırmızı | Neon Yeşil |
 | --- | --- | --- |
@@ -66,7 +66,7 @@ $env:JAVA_HOME = "C:\Program Files\Android\Android Studio\jbr"
 
 Çıktı `android/app/build/outputs/apk/debug/app-debug.apk` konumunda oluşur.
 
-### v1.0.0 APK imza notu
+### v1.0.1 APK imza notu
 
 Projede üretim imzalama anahtarı bulunmadığından `Snake-Rush.apk`, Android debug sertifikasıyla imzalanmış kurulabilir test/dağıtım APK’sıdır. APK Signature Scheme v1 ve v2 doğrulaması başarılıdır. Mağaza dağıtımından önce geliştiricinin kendi güvenli üretim anahtarıyla imzalanmalıdır; depoda keystore veya parola tutulmaz.
 
@@ -76,7 +76,7 @@ Projede üretim imzalama anahtarı bulunmadığından `Snake-Rush.apk`, Android 
 - Android 16 / API 36
 - Google APIs, Intel x86_64, normal sistem görüntüsü
 - `adb` durumu: `device`
-- Uygulama sürümü: `1.0.0`
+- Uygulama sürümü: `1.0.1`
 
 Gerçek emülatör test kanıtları `test-screenshots` klasöründedir. Akıcı oynanış kaydı yerel teslimde `test-videos/snake-rush-smooth-gameplay.mp4` olarak üretilir; büyük test videoları Git geçmişine eklenmez.
 

@@ -1,12 +1,13 @@
-# Snake Rush v1.0.0
+# Snake Rush v1.0.1
 
-Snake Rush’ın ilk Android sürümü.
+Snake Rush’ın güncellenmiş Android sürümü.
 
 - GHC STUDIO tarafından geliştirildi
 - Geliştirici: Görkem H.
 - Akıcı ve yumuşatılmış yılan hareketi
-- Korunan klasik kare piksel yılan görünümü
-- Birbirinden ayrı kare gövde segmentleri ve gözlü kare baş
+- Önceki sevilen yılan tasarımına geri dönüş
+- Birbirine bağlı yuvarlatılmış gövde segmentleri
+- Dairesel gözlü, yuvarlatılmış ve parıltılı kafa
 - Neon Mavi, Neon Mor, Neon Kırmızı ve Neon Yeşil temaları
 - Dokunmatik kaydırma ve ekran yön tuşları
 - Klavye kontrolleri
