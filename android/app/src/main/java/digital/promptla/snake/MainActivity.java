@@ -90,7 +90,7 @@ public class MainActivity extends Activity {
             return;
         }
         webView.evaluateJavascript(
-            "Boolean(window.gogoHandleBack && window.gogoHandleBack())",
+            "Boolean(window.snakeRushHandleBack && window.snakeRushHandleBack())",
             result -> {
                 if (!"true".equals(result)) exitFromBack();
             }

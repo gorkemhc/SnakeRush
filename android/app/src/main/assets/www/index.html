@@ -6,35 +6,35 @@
   <meta id="themeMeta" name="theme-color" content="#050b14">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <title>GogoSnake</title>
+  <title>Snake Rush</title>
   <script>
     (() => {
       const allowed = ['blue', 'purple', 'red', 'green'];
-      const saved = localStorage.getItem('gogosnake_theme_v1');
+      const saved = localStorage.getItem('snake_rush_theme_v1');
       document.documentElement.dataset.theme = allowed.includes(saved) ? saved : 'blue';
     })();
   </script>
   <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="style.css?v=4">
+  <link rel="stylesheet" href="style.css?v=5">
 </head>
 <body>
   <div id="app" class="app">
-    <section id="splash" class="screen splash active" aria-label="GogoSnake açılış ekranı">
+    <section id="splash" class="screen splash active" aria-label="Snake Rush açılış ekranı">
       <div class="splash-content">
         <img class="splash-mark" src="icon-192.png" alt="" width="92" height="92">
-        <div class="studio-name">GOGO STUDIO</div>
+        <div class="studio-name">GHC STUDIO</div>
         <div class="developer-name">Görkem H.</div>
-        <div class="splash-title">Gogo<span>Snake</span></div>
+        <div class="splash-title">Snake <span>Rush</span></div>
         <div class="loading-line" aria-hidden="true"><i></i></div>
       </div>
     </section>
 
     <section id="menu" class="screen menu" aria-label="Ana menü">
-      <header class="app-header"><div class="wordmark">Gogo<span>Snake</span></div></header>
+      <header class="app-header"><div class="wordmark">Snake <span>Rush</span></div></header>
       <main class="menu-shell">
         <div class="menu-card">
           <img class="game-icon" src="icon-192.png" alt="" width="58" height="58">
-          <h1>GogoSnake</h1>
+          <h1>Snake Rush</h1>
           <p>Yemleri topla, büyü ve kendi rekorunu kır.</p>
           <div class="record-row"><span>Rekor</span><strong id="menuBest">0</strong></div>
           <div class="mode-toggle" role="tablist" aria-label="Oyun modu seçimi">
@@ -47,13 +47,12 @@
           </div>
           <button id="startBtn" class="primary-btn" type="button">Oyuna Başla</button>
           <button id="settingsBtn" class="ghost-btn settings-open-btn" type="button">Ayarlar</button>
-          <a id="apkDownloadBtn" class="download-btn" href="https://github.com/gorkemhc/gogosnake/releases/download/v1.0.0/GogoSnake.apk" rel="noopener">APK İndir</a>
         </div>
       </main>
     </section>
 
     <section id="settings" class="screen settings" aria-label="Ayarlar">
-      <header class="app-header"><div class="wordmark">Gogo<span>Snake</span></div></header>
+      <header class="app-header"><div class="wordmark">Snake <span>Rush</span></div></header>
       <main class="menu-shell settings-shell">
         <div class="menu-card settings-card">
           <div class="section-heading">
@@ -106,12 +105,12 @@
     </section>
 
     <section id="game" class="screen game" aria-label="Oyun ekranı">
-      <header class="app-header game-header"><div class="wordmark">Gogo<span>Snake</span></div></header>
+      <header class="app-header game-header"><div class="wordmark">Snake <span>Rush</span></div></header>
       <main class="game-shell">
         <p class="game-desc">Yemleri topla, büyü ve rekorunu geliştir.</p>
         <div class="play-row">
           <div class="board-wrap">
-            <canvas id="gameCanvas" width="480" height="480" tabindex="0" aria-label="GogoSnake oyun alanı"></canvas>
+            <canvas id="gameCanvas" width="480" height="480" tabindex="0" aria-label="Snake Rush oyun alanı"></canvas>
             <div id="pauseOverlay" class="pause-overlay hidden">DURAKLATILDI</div>
           </div>
           <aside class="side-panel" aria-label="Oyun bilgileri ve kontroller">
@@ -139,7 +138,7 @@
     </section>
 
     <section id="gameOver" class="screen over" aria-label="Oyun bitti">
-      <header class="app-header"><div class="wordmark">Gogo<span>Snake</span></div></header>
+      <header class="app-header"><div class="wordmark">Snake <span>Rush</span></div></header>
       <main class="menu-shell">
         <div class="menu-card over-card">
           <span class="over-kicker">OYUN SONU</span>
@@ -164,6 +163,6 @@
       </div>
     </div>
   </div>
-  <script src="app.js?v=4"></script>
+  <script src="app.js?v=5"></script>
 </body>
 </html>

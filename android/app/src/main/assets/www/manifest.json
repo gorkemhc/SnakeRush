@@ -1,6 +1,6 @@
 {
-  "name":"GogoSnake",
-  "short_name":"GogoSnake",
+  "name":"Snake Rush",
+  "short_name":"Snake Rush",
   "start_url":"./index.html",
   "display":"fullscreen",
   "orientation":"portrait",

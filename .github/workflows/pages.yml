@@ -1,4 +1,4 @@
-name: Deploy GogoSnake to GitHub Pages
+name: Deploy Snake Rush to GitHub Pages
 
 on:
   push:
