@@ -5,7 +5,9 @@ Klasik kare piksel yılan görünümünü koruyan; akıcı hareket, dört neon t
 **GHC STUDIO**<br>
 Geliştirici: **Görkem H.**
 
-[Canlı Oyun](https://gorkemhc.github.io/SnakeRush/) · [APK İndir](https://github.com/gorkemhc/SnakeRush/releases/download/v1.0.1/Snake-Rush.apk)
+[Canlı Oyun](https://gorkemhc.github.io/SnakeRush/) · [APK İndir (v1.0.2)](https://github.com/gorkemhc/SnakeRush/releases/download/v1.0.2/Snake-Rush.apk)
+
+[GitHub](https://github.com/gorkemhc) · [LinkedIn](https://www.linkedin.com/in/gorkemhicyilmaz/) · [E-posta](mailto:gorkemhcylmz0@gmail.com)
 
 ## Özellikler
 
@@ -66,17 +68,19 @@ $env:JAVA_HOME = "C:\Program Files\Android\Android Studio\jbr"
 
 Çıktı `android/app/build/outputs/apk/debug/app-debug.apk` konumunda oluşur.
 
-### v1.0.1 APK imza notu
+### v1.0.2 APK imza notu
 
 Projede üretim imzalama anahtarı bulunmadığından `Snake-Rush.apk`, Android debug sertifikasıyla imzalanmış kurulabilir test/dağıtım APK’sıdır. APK Signature Scheme v1 ve v2 doğrulaması başarılıdır. Mağaza dağıtımından önce geliştiricinin kendi güvenli üretim anahtarıyla imzalanmalıdır; depoda keystore veya parola tutulmaz.
 
-## Doğrulanan Android ortamı
+## Android doğrulama geçmişi
 
 - Pixel 7 sanal cihazı
 - Android 16 / API 36
 - Google APIs, Intel x86_64, normal sistem görüntüsü
 - `adb` durumu: `device`
-- Uygulama sürümü: `1.0.1`
+- Emülatörde doğrulanan uygulama sürümü: `1.0.1`
+
+`v1.0.2` için web arayüzü masaüstü ve dar ekran boyutlarında kontrol edilmiş, JavaScript sözdizimi doğrulanmış ve yüklenebilir debug APK başarıyla oluşturulmuştur. Bu sürüm için ayrıca emülatör testi yapılmamıştır.
 
 Gerçek emülatör test kanıtları `test-screenshots` klasöründedir. Akıcı oynanış kaydı yerel teslimde `test-videos/snake-rush-smooth-gameplay.mp4` olarak üretilir; büyük test videoları Git geçmişine eklenmez.
 

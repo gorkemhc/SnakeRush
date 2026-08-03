@@ -47,7 +47,7 @@ public class MainActivity extends Activity {
         webView.setDownloadListener((url, userAgent, contentDisposition, mimeType, contentLength) -> openExternal(Uri.parse(url)));
 
         setContentView(webView);
-        webView.loadUrl("file:///android_asset/www/index.html");
+        webView.loadUrl("file:///android_asset/www/index.html?platform=android");
     }
 
     private boolean handleNavigation(Uri uri) {

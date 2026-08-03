@@ -124,6 +124,7 @@
   function show(name) {
     Object.values(screens).forEach(screen => screen?.classList.remove('active'));
     screens[name]?.classList.add('active');
+    document.documentElement.dataset.screen = name;
     if (name === 'game') requestAnimationFrame(resize);
   }
 

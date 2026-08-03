@@ -1,5 +1,5 @@
-const CACHE = 'snake-rush-v5';
-const ASSETS = ['./', './index.html', './style.css?v=5', './app.js?v=5', './manifest.json', './icon-192.png', './icon-512.png'];
+const CACHE = 'snake-rush-v7';
+const ASSETS = ['./', './index.html', './style.css?v=7', './app.js?v=7', './manifest.json', './icon-192.png', './icon-512.png'];
 
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(ASSETS)).then(() => self.skipWaiting()));

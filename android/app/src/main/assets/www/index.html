@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="tr" data-theme="blue">
+<html lang="tr" data-theme="blue" data-platform="web" data-screen="splash">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no">
@@ -12,10 +12,11 @@
       const allowed = ['blue', 'purple', 'red', 'green'];
       const saved = localStorage.getItem('snake_rush_theme_v1');
       document.documentElement.dataset.theme = allowed.includes(saved) ? saved : 'blue';
+      document.documentElement.dataset.platform = new URLSearchParams(location.search).get('platform') === 'android' ? 'android' : 'web';
     })();
   </script>
   <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="style.css?v=5">
+  <link rel="stylesheet" href="style.css?v=7">
 </head>
 <body>
   <div id="app" class="app">
@@ -163,6 +164,23 @@
       </div>
     </div>
   </div>
-  <script src="app.js?v=5"></script>
+  <footer class="web-footer" aria-label="GHC Studio iletişim bağlantıları">
+    <div class="web-footer-brand">
+      <strong>GHC STUDIO</strong>
+      <span>Snake Rush · Görkem Hiçyılmaz</span>
+    </div>
+    <nav class="web-footer-links" aria-label="Sosyal medya ve e-posta">
+      <a href="https://github.com/gorkemhc" target="_blank" rel="noopener noreferrer" aria-label="Görkem Hiçyılmaz GitHub profili">
+        <span aria-hidden="true">GH</span><b>GitHub</b><small>@gorkemhc</small>
+      </a>
+      <a href="https://www.linkedin.com/in/gorkemhicyilmaz/" target="_blank" rel="noopener noreferrer" aria-label="Görkem Hiçyılmaz LinkedIn profili">
+        <span aria-hidden="true">in</span><b>LinkedIn</b><small>gorkemhicyilmaz</small>
+      </a>
+      <a href="mailto:gorkemhcylmz0@gmail.com" aria-label="Görkem Hiçyılmaz e-posta adresi">
+        <span aria-hidden="true">@</span><b>Gmail</b><small>gorkemhcylmz0@gmail.com</small>
+      </a>
+    </nav>
+  </footer>
+  <script src="app.js?v=7"></script>
 </body>
 </html>
