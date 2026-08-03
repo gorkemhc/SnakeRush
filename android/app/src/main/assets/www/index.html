@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no">
+  <meta name="theme-color" content="#060b14">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>PROMPTLA Snake</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app" class="app">
+    <section id="splash" class="screen splash active" aria-label="Açılış ekranı">
+      <div class="brand-wrap">
+        <div class="brand-main">promptla.digital</div>
+        <div class="brand-sub">Görkem Hiçyılmaz</div>
+      </div>
+    </section>
+
+    <section id="menu" class="screen menu" aria-label="Ana menü">
+      <header class="app-header"><div class="logo">PROMPT<span>LA</span></div></header>
+      <main class="menu-shell">
+        <div class="menu-card">
+          <span class="game-icon">🐍</span>
+          <h1>Yılan Oyunu</h1>
+          <p>Web sayfasındaki PROMPTLA neon grid görünümünde, mobil kaydırma kontrollü klasik yılan oyunu.</p>
+          <div class="record-row"><span>Güncel Rekor</span><strong id="menuBest">0</strong></div>
+          <div class="mode-toggle" role="tablist" aria-label="Oyun modu seçimi">
+            <button id="easyBtn" class="mode-btn active" type="button" data-mode="easy"><b>Kolay</b><small>Duvardan geç</small></button>
+            <button id="hardBtn" class="mode-btn" type="button" data-mode="hard"><b>Zor</b><small>Duvar öldürür</small></button>
+          </div>
+          <div class="menu-speed-chip"><span>Hız</span><strong id="menuSpeedLabel">5</strong><small>/10</small></div>
+          <div class="menu-speed-chip"><span>Ses</span><strong id="menuVolumeLabel">70</strong><small>%</small></div>
+          <button id="startBtn" class="primary-btn">Oyuna Başla</button>
+          <button id="settingsBtn" class="ghost-btn settings-open-btn">Ayarlar</button>
+        </div>
+      </main>
+    </section>
+
+    <section id="settings" class="screen settings" aria-label="Ayarlar">
+      <header class="app-header"><div class="logo">PROMPT<span>LA</span></div></header>
+      <main class="menu-shell">
+        <div class="menu-card settings-card">
+          <span class="game-icon">⚙️</span>
+          <h1>Ayarlar</h1>
+          <p>Oyun hızını 1 ile 10 arasında ayarla. 5 mevcut hızdır; 4 biraz daha yavaş, 10 çok hızlıdır.</p>
+          <div class="speed-panel">
+            <div class="speed-head"><span>Oyun Hızı</span><strong><b id="speedValue">5</b>/10</strong></div>
+            <input id="speedRange" class="speed-range" type="range" min="1" max="10" step="1" value="5" aria-label="Oyun hızı">
+            <div class="speed-scale"><span>1</span><span>Yavaş</span><span>5</span><span>Hızlı</span><span>10</span></div>
+          </div>
+          <div class="speed-panel sound-panel">
+            <div class="speed-head"><span>Ses Düzeyi</span><strong><b id="volumeValue">70</b>%</strong></div>
+            <input id="volumeRange" class="speed-range volume-range" type="range" min="0" max="100" step="5" value="70" aria-label="Ses düzeyi">
+            <div class="speed-scale"><span>0</span><span>Sessiz</span><span>50</span><span>Yüksek</span><span>100</span></div>
+            <small class="sound-note">Klasik yılan tarzı retro efektler: dönüş, yem, başlangıç ve oyun bitti.</small>
+          </div>
+          <button id="settingsBackBtn" class="primary-btn">Kaydet ve Menüye Dön</button>
+        </div>
+      </main>
+    </section>
+
+    <section id="game" class="screen game" aria-label="Oyun ekranı">
+      <header class="app-header game-header"><div class="logo">PROMPT<span>LA</span></div></header>
+      <main class="game-shell">
+        <p class="game-desc">Yemleri topla, yılanı büyüt; kolay modda duvardan geç veya zor modda hayatta kal.</p>
+
+        <div class="play-row">
+          <div class="board-wrap">
+            <canvas id="gameCanvas" width="480" height="480" aria-label="Yılan Oyunu oyun alanı"></canvas>
+            <div id="pauseOverlay" class="pause-overlay hidden">DURAKLATILDI</div>
+          </div>
+
+          <aside class="side-panel" aria-label="Oyun bilgileri ve kontroller">
+            <div class="hud-row">
+              <div><span>Skor</span><strong id="score">0</strong></div>
+              <div><span>Rekor</span><strong id="best">0</strong></div>
+              <div><span>Mod</span><strong id="modeLabel">Kolay</strong></div>
+              <div><span>Hız</span><strong id="gameSpeedLabel">5</strong></div>
+              <div><span>Ses</span><strong id="gameVolumeLabel">70%</strong></div>
+            </div>
+            <div class="game-actions">
+              <button id="pauseBtn" class="mini-btn" type="button">Duraklat</button>
+              <button id="restartMiniBtn" class="mini-btn" type="button">Tekrar Oyna</button>
+              <button id="menuMiniBtn" class="mini-btn" type="button">Menü</button>
+            </div>
+          </aside>
+        </div>
+
+        <div class="touch-hint" id="touchHint">Kaydırarak yön değiştir</div>
+      </main>
+    </section>
+
+    <section id="gameOver" class="screen over" aria-label="Oyun bitti">
+      <header class="app-header"><div class="logo">PROMPT<span>LA</span></div></header>
+      <main class="menu-shell">
+        <div class="menu-card over-card">
+          <h2>Oyun Bitti</h2>
+          <div class="result-grid">
+            <div><span>Skor</span><strong id="finalScore">0</strong></div>
+            <div><span>Güncel Rekor</span><strong id="finalBest">0</strong></div>
+            <div><span>Mod</span><strong id="finalMode">Kolay</strong></div>
+            <div><span>Hız</span><strong id="finalSpeed">5</strong></div>
+            <div><span>Ses</span><strong id="finalVolume">70%</strong></div>
+          </div>
+          <button id="restartBtn" class="primary-btn">Tekrar Oyna</button>
+          <button id="menuBtn" class="ghost-btn">Menüye Dön</button>
+        </div>
+      </main>
+    </section>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
