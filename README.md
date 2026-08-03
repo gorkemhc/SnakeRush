@@ -4,10 +4,11 @@ Klasik kare piksel yılan görünümünü koruyan; akıcı hareket, dört neon t
 
 **GHC STUDIO**<br>
 Geliştirici: **Görkem H.**
+iletişim >> [GitHub](https://github.com/gorkemhc) · [LinkedIn](https://www.linkedin.com/in/gorkemhicyilmaz/) · [E-posta](mailto:gorkemhcylmz0@gmail.com)
+
 
 [Canlı Oyun](https://gorkemhc.github.io/SnakeRush/) · [APK İndir (v1.0.2)](https://github.com/gorkemhc/SnakeRush/releases/download/v1.0.2/Snake-Rush.apk)
 
-[GitHub](https://github.com/gorkemhc) · [LinkedIn](https://www.linkedin.com/in/gorkemhicyilmaz/) · [E-posta](mailto:gorkemhcylmz0@gmail.com)
 
 ## Özellikler
 
@@ -66,9 +67,6 @@ $env:JAVA_HOME = "C:\Program Files\Android\Android Studio\jbr"
 
 Çıktı `android/app/build/outputs/apk/debug/app-debug.apk` konumunda oluşur.
 
-### v1.0.2 APK imza notu
-
-Projede üretim imzalama anahtarı bulunmadığından `Snake-Rush.apk`, Android debug sertifikasıyla imzalanmış kurulabilir test/dağıtım APK’sıdır. APK Signature Scheme v1 ve v2 doğrulaması başarılıdır. Mağaza dağıtımından önce geliştiricinin kendi güvenli üretim anahtarıyla imzalanmalıdır; depoda keystore veya parola tutulmaz.
 
 ## Android doğrulama geçmişi
 
