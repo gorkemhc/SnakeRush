@@ -21,8 +21,6 @@ Geliştirici: **Görkem H.**
 - Mobil safe-area desteği ve küçük ekranlara uyumlu yerleşim
 - Çevrimdışı çalışabilen PWA ve yerel Android `WebView` paketi
 
-Oyunun web veya Android arayüzünde indirme düğmesi bulunmaz. APK yalnızca bu README ve GitHub Releases üzerinden sunulur.
-
 ## Ekran görüntüleri
 
 | Ana menü | Ayarlar | Oynanış |
