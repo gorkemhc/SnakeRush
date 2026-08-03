@@ -4,6 +4,7 @@ Klasik kare piksel yılan görünümünü koruyan; akıcı hareket, dört neon t
 
 **GHC STUDIO**<br>
 Geliştirici: **Görkem H.**
+| --- | --- | --- |
 iletişim >> [GitHub](https://github.com/gorkemhc) · [LinkedIn](https://www.linkedin.com/in/gorkemhicyilmaz/) · [E-posta](mailto:gorkemhcylmz0@gmail.com)
 
 
